@@ -1,0 +1,33 @@
+<!--
+  Generated template for the Newdeposit page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Enter a new deposit</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <form #form="ngForm" (ngSubmit)="saveIncome(form)" novalidate>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-textarea type="text" required [(ngModel)]="incomeForm.description" name="description"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Amount</ion-label>
+        <ion-input type="number" [(ngModel)]="incomeForm.amount" name="amount"></ion-input>
+      </ion-item>
+      <br>
+      <button ion-button block color="success" type="submit">Submit</button>
+      <br>
+      <button ion-button block outline color="danger" navPop>Cancel</button>
+  </form>
+
+</ion-content>

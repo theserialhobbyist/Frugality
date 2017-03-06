@@ -9,32 +9,19 @@
 <ion-content>
   <ion-list inset>
 
-    <ion-item><button ion-button>add new income</button></ion-item>
+    <ion-item><button ion-button [navPush]="NewDepositPage">add new deposit</button></ion-item>
 
-    <ion-item-sliding>
+    <ion-item-sliding *ngFor="let each of incomes">
       <ion-item>
-        <h4><strong>$354.01</strong> on 03/04/17</h4>
-        <p>BikeSource paycheck</p>
+        <h4><strong>${{each.amount}}</strong> on {{each.date}}</h4>
+        <p>{{each.description}}</p>
       </ion-item>
       <ion-item-options side="right">
-        <button ion-button icon-only color="danger">
+        <button ion-button icon-only color="danger" (click)="removeIncome(each.id)">
           <ion-icon name="trash"></ion-icon>
         </button>
       </ion-item-options>
     </ion-item-sliding>
-
-    <ion-item-sliding>
-      <ion-item>
-        <h4><strong>$561.28</strong> on 03/05/17</h4>
-        <p>GrubHub paycheck</p>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button icon-only color="danger">
-          <ion-icon name="trash"></ion-icon>
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
-
 
   </ion-list>
 </ion-content>
