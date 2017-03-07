@@ -30,11 +30,17 @@ export class IncomePage {
     this.backandService.removeIncome(id).subscribe(
       data => {
         this.getIncomes();
-      },
+      }
     );
   }
 
   ionViewDidLoad() {
+    console.log("incomes page loaded")
+  }
+
+  ionViewWillEnter() {
+    console.log("incomes page reloaded")
+    this.getIncomes()
   }
 
 }

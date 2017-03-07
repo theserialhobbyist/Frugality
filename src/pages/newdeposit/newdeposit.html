@@ -25,6 +25,8 @@
         <ion-input type="number" [(ngModel)]="incomeForm.amount" name="amount"></ion-input>
       </ion-item>
       <br>
+      <button ion-button (click)="selectDate()">Select Date</button>
+      <br>
       <button ion-button block color="success" type="submit">Submit</button>
       <br>
       <button ion-button block outline color="danger" navPop>Cancel</button>

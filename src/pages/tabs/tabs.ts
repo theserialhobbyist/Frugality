@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ExpensesPage } from '../expenses/expenses';
 import { IncomePage } from '../income/income';
-import { BillsPage } from '../bills/bills';
 import { OverviewPage } from '../overview/overview';
 
 @Component({
@@ -12,8 +11,7 @@ export class TabsPage {
   // should be each tab's root Page
   tab1Root: any = OverviewPage;
   tab2Root: any = ExpensesPage;
-  tab3Root: any = BillsPage;
-  tab4Root: any = IncomePage;
+  tab3Root: any = IncomePage;
 
   constructor() {
 

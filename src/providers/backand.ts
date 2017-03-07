@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 import { Income } from '../models/income';
 
 /*
-  Generated class for the Backand provider.
+Generated class for the Backand provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
+See https://angular.io/docs/ts/latest/guide/dependency-injection.html
+for more info on providers and Angular 2 DI.
 */
 
 @Injectable()
@@ -29,25 +29,30 @@ export class Backand {
   }
 
   public loadIncomes() {
-    return this.http.get(this.api_url + '/1/objects/incomes', {
+    let loadURL = this.http.get(this.api_url + '/1/objects/incomes', {
       headers: this.authHeader()
     })
     .map(res => res.json())
+
+    console.log(loadURL)
+
+    return loadURL
   }
 
-  public addIncome(form) {
+  public addIncome(formData) {
+    console.log("addIncome is running")
 
-    let data = JSON.stringify({description: form.description, amount: form.amount});
-    console.log(data)
-
-    return this.http.post(this.api_url + '/1/objects/incomes?returnObject=true', data,
+    let postURL = this.http.post(this.api_url + '/1/objects/incomes', formData,
     {
-      headers: this.authHeader()
-    })
-    .map(res => {
-      console.log(res);
+      headers: this.authHeader(),
+
+    }).map(res => {
       return res.json();
-    });
+    })
+
+    console.log(postURL)
+
+    return postURL
   }
 
   public removeIncome(id: string) {
