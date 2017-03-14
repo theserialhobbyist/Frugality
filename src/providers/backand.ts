@@ -28,8 +28,8 @@ export class Backand {
     return authHeader;
   }
 
-  public loadIncomes() {
-    let loadURL = this.http.get(this.api_url + '/1/objects/incomes', {
+  public loadIncomes(page) {
+    let loadURL = this.http.get(this.api_url + '/1/objects/incomes?pageSize=20&pageNumber=' + page + "&sort=%7B%22fieldName%22%3A%20%22date%22%2C%20%22order%22%3A%20%22desc%22%7D", {
       headers: this.authHeader()
     })
     .map(res => res.json())

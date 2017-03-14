@@ -13,15 +13,21 @@
 
     <ion-item-sliding *ngFor="let each of incomes">
       <ion-item>
-        <h4><strong>${{each.amount}}</strong> on {{each.date}}</h4>
+        <h4><strong>${{each.amount}}</strong> on {{each.date | date:'mediumDate'}}</h4>
         <p>{{each.description}}</p>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button icon-only color="danger" (click)="removeIncome(each.id)">
           <ion-icon name="trash"></ion-icon>
         </button>
+        <button ion-button icon-only color="primary" [navPush]="EditDepositPage" [navParams]=each.id >
+          <ion-icon name="create"></ion-icon>
+        </button>
       </ion-item-options>
     </ion-item-sliding>
 
   </ion-list>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+ </ion-infinite-scroll>
 </ion-content>

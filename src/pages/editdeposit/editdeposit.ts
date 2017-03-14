@@ -13,17 +13,18 @@ Ionic pages and navigation.
 */
 
 @Component({
-  selector: 'page-newdeposit',
-  templateUrl: 'newdeposit.html'
+  selector: 'page-editdeposit',
+  templateUrl: 'editdeposit.html'
 })
 
-export class NewdepositPage {
+export class EditdepositPage {
 
   private SelectedDate;
 
   private NewIncome : FormGroup;
 
   constructor(public navCtrl: NavController, public backandService: Backand, private formBuilder: FormBuilder, private datePipe: DatePipe ) {
+
     this.NewIncome = this.formBuilder.group({
       description: ['', Validators.required],
       amount: ['', Validators.required]
